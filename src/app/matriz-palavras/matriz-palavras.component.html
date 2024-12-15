@@ -1,0 +1,45 @@
+<div id="itens-content">
+    <div id="lista-palavras">
+        <ul>
+            <li>Palavra</li>
+            <li>Palavra</li>
+            <li>Palavra</li>
+            <li>Palavra</li>
+            <li>Palavra</li>
+            <li>Palavra</li>
+            <li>Palavra</li>
+            <li>Palavra</li>
+            <li>Palavra</li>
+            <li>Palavra</li>
+            <li>Palavra</li>
+            <li>Palavra</li>
+        </ul>
+    </div>
+
+    <div id="matriz">
+        <tbody>
+            @for (itemLinha of itens; track $index) {
+                <tr>
+                    @for (itemColuna of itemLinha; track $index) {
+                        <td>{{itemColuna}}</td>
+                    }
+                </tr>
+            }
+            <!-- <tr>   linha 
+                <td>A</td>   coluna 
+                <td>B</td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+            </tr> -->
+        </tbody>
+    </div>
+
+    <div id="opcoes">
+        <button type="reset" class="btn btn-primary">Gerar novo</button>
+        <button type="button" class="btn btn-warning">Desistir</button>
+    </div>
+</div>

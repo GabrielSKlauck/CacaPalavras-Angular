@@ -1,0 +1,15 @@
+div{
+    background-color: rgb(235, 209, 179);
+    box-shadow: 3px 3px 12px black;
+    border-radius: 25px;
+    display: flex;
+    margin-top: 5rem;
+    margin-inline: auto;
+    width: 50rem;
+    min-height: 30rem;
+    height: auto;
+}
+
+app-matriz-palavras{
+    width: 100%;
+}
