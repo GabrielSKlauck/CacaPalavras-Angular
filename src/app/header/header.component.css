@@ -1,0 +1,18 @@
+header{
+    color: white;
+    height: 65px;
+    justify-content: center;
+    display: flex;
+}
+
+div{
+    display: flex;
+    margin-top: 10px;
+}
+
+#alterado{
+    padding: 5px;
+    margin-left: 8px;
+    border-radius: 10px;
+    background-color: #ff3232;
+}

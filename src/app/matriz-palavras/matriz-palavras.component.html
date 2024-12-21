@@ -1,18 +1,9 @@
 <div id="itens-content">
     <div id="lista-palavras">
         <ul>
-            <li>Palavra</li>
-            <li>Palavra</li>
-            <li>Palavra</li>
-            <li>Palavra</li>
-            <li>Palavra</li>
-            <li>Palavra</li>
-            <li>Palavra</li>
-            <li>Palavra</li>
-            <li>Palavra</li>
-            <li>Palavra</li>
-            <li>Palavra</li>
-            <li>Palavra</li>
+            @for(itens of listaPalavras; track $index){
+                <li>{{itens}}</li>
+            }
         </ul>
     </div>
 
@@ -25,21 +16,11 @@
                     }
                 </tr>
             }
-            <!-- <tr>   linha 
-                <td>A</td>   coluna 
-                <td>B</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>D</td>
-                <td>E</td>
-                <td>F</td>
-            </tr> -->
         </tbody>
     </div>
 
     <div id="opcoes">
-        <button type="reset" class="btn btn-primary">Gerar novo</button>
-        <button type="button" class="btn btn-warning">Desistir</button>
+        <button type="reset" class="btn btn-danger">Gerar novo</button>
+        <button type="button" class="btn btn-danger">Desistir</button>
     </div>
 </div>
