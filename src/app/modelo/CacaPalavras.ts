@@ -31,19 +31,18 @@ export class CacaPalavras{
 
    private populaMatriz(): void{
       
-      for (let i = 0; i < 7; i++) {
-         //Posição inicio de palavras
-         this.inicioL = this.getRandomInt(this.linha);
-         this.inicioC = this.getRandomInt(this.coluna);
-
+      //Seleciona 6 palavras aleatorias
+      for (let i = 0; i < 6; i++) {
          //Pega um valor aleatorio com base na quantidade de palavras
          const posicaoPalavra = this.getRandomInt(this.palavras.length)
 
          //Seleciona uma palavra da lista
          let palavraSelecionada:string = this.palavras.at(posicaoPalavra)!
    
-
          this.palavrasEscolhidas.push(palavraSelecionada);
+
+         delete this.palavras[posicaoPalavra]
+         this.palavras = this.palavras.filter(n => n)
       }
    }
 
