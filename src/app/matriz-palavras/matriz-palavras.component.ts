@@ -12,7 +12,7 @@ export class MatrizPalavrasComponent{
   caca = new CacaPalavras();
   
   itens:string[][] = this.caca.matriz;
-  listaPalavras:string[] = this.caca.palavrasEscolhidas;
+  listaPalavras:string[] = this.caca.palavrasMostragem;
 
   ngOnInit(): void {
   }
