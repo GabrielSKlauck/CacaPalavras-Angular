@@ -1,8 +1,9 @@
 export class CacaPalavras{
    matriz: string[][];
-    palavras: string[] = ['Arquiteto', 'Computador', 'Mesa', 'Tabua', 'Arvore', 'Tela', 'Cachorro', 
+   palavras: string[] = ['Arquiteto', 'Computador', 'Mesa', 'Tabua', 'Arvore', 'Tela', 'Cachorro', 
                          'Teclado', 'Violão', 'Animal', 'Macaco', 'Colar', 'Rato', 'Barco',
                          'Camera', 'Molho', 'Salgado', 'Lapis', 'Ração', 'Mar', 'Lateral'];
+   palavrasEscolhidas: string[] = [];
    posicoesPalavras = new Map<string,string>();
    private linha:number = 10;
    private coluna:number = 25;
@@ -12,6 +13,7 @@ export class CacaPalavras{
    constructor(){
       this.matriz = Array.from({ length: this.linha }, () => Array(this.coluna).fill(""));
       this.matriz = this.geraMatriz();
+      this.populaMatriz();
    }
 
    geraMatriz(): string[][]{
@@ -38,10 +40,10 @@ export class CacaPalavras{
          const posicaoPalavra = this.getRandomInt(this.palavras.length)
 
          //Seleciona uma palavra da lista
-         const palavraSelecionada = this.palavras.at(posicaoPalavra)
+         let palavraSelecionada:string = this.palavras.at(posicaoPalavra)!
+   
 
-         //Remove da lista de palavras
-         delete this.palavras[posicaoPalavra]
+         this.palavrasEscolhidas.push(palavraSelecionada);
       }
    }
 
