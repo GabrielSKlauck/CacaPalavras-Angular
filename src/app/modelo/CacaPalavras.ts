@@ -66,23 +66,44 @@ export class CacaPalavras {
 
                //Palavra deve ser menor que a quantidade de coluna
                if ((inicioC + palavra.length) < this.coluna &&
-                this.verficaOcupacaoPalavra(palavra, "d", inicioC, inicioL, this.matriz)) {
+                this.verficaOcupacaoPalavra(palavra, "d", inicioC, inicioL)) {
                   
                   //Popula matriz
                   for (let j = 0; j < palavra.length; j++) {
                      this.matriz[inicioL][inicioC] = palavra.charAt(j);
                      this.matrizEspelho[inicioL][inicioC] = palavra.charAt(j);
+                     inicioC++;
                   }
                }
-            } while (!this.isOcuped(inicioL, inicioC) || (inicioL == -1 && inicioC == -1))
+            } while (this.isOcuped(inicioL, inicioC) || (inicioL == -1 && inicioC == -1))
+         }else{
+            //Pega uma palavra da lista;
+            let palavra: string = this.palavrasEscolhidas.pop()!;
+            do {
+               //Seleciona dois numeros aleatorios
+               inicioL = this.getRandomInt(this.linha);
+               inicioC = this.getRandomInt(this.coluna);
+
+               //Palavra deve ser menor que a quantidade de coluna
+               if ((inicioC + palavra.length) < this.coluna &&
+                this.verficaOcupacaoPalavra(palavra, "v", inicioL, inicioC)) {
+                  
+                  //Popula matriz
+                  for (let j = 0; j < palavra.length; j++) {
+                     this.matriz[inicioL][inicioC] = palavra.charAt(j);
+                     this.matrizEspelho[inicioL][inicioC] = palavra.charAt(j);
+                     inicioL++;
+                  }
+               }
+            } while (this.isOcuped(inicioL, inicioC) || (inicioL == -1 && inicioC == -1))
          }
 
       }
    }
 
-   private verficaOcupacaoPalavra(palavra: string, sentido:string, direcao: number, base:number, matriz: string[][]): boolean{
+   private verficaOcupacaoPalavra(palavra: string, sentido:string, direcao: number, base:number): boolean{
       //Se for da direita para esquerda
-      if (sentido == "d") {
+      if (sentido === "d") {
          for (let j = 0; j < palavra.length; j++) {
             direcao++;
             if(!this.isOcuped(base,direcao)){
