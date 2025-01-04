@@ -27,29 +27,46 @@ export class MatrizPalavrasComponent {
       //Pega todas as chaves que referenciam a palavra
       let listaCoordenadasPalavra: string[] = this.obterChavesPorValor(this.caca.posicoesPalavras, palavra)
 
-      for (let i = 0; i < listaCoordenadasPalavra.length; i++) {
-        //Pega as tags <td> e muda a cor de fundo
-        let tag: HTMLElement | null = document.getElementById(listaCoordenadasPalavra[i]);
-        if (tag != null) {
-          if (i === 0) {
-            tag.style.borderTopLeftRadius = "30";
-            tag.style.borderBottomLeftRadius = "30";
-            tag.style.borderTopRightRadius = "0";
-            tag.style.borderBottomRightRadius = "0";
-            
-          }else if(i === listaCoordenadasPalavra.length - 1){
-            tag.style.borderTopLeftRadius = "0";
-            tag.style.borderBottomLeftRadius = "0";
-            tag.style.borderTopRightRadius = "30";
-            tag.style.borderBottomRightRadius = "30";
-          }else{
-            tag.style.borderTopLeftRadius = "0";
-            tag.style.borderBottomLeftRadius = "0";
-            tag.style.borderTopRightRadius = "0";
-            tag.style.borderBottomRightRadius = "0";
-          }
-          tag.style.backgroundColor = "#f34141";
+      this.marcaPalavrasHorizontal(listaCoordenadasPalavra);
+
+      this.marcaListaPalavra(palavra);
+    }
+  }
+  marcaListaPalavra(palavra: string) {
+    let tag: HTMLElement | null = document.getElementById(""+this.listaPalavras.indexOf(palavra));
+      if (tag != null) {
+        tag.innerHTML = "";
+        let tagS = document.createElement("s");
+        tagS.innerHTML = palavra;
+        tag.append(tagS);
+
+      }
+  }
+
+  marcaPalavrasHorizontal(lista: string[]): void{
+    for (let i = 0; i < lista.length; i++) {
+      //Pega as tags <td> e muda a cor de fundo
+      let tag: HTMLElement | null = document.getElementById(lista[i]);
+      if (tag != null) {
+        tag.style.transition = '0.5s';
+        if (i === 0) {
+          tag.style.borderTopLeftRadius = "30";
+          tag.style.borderBottomLeftRadius = "30";
+          tag.style.borderTopRightRadius = "0";
+          tag.style.borderBottomRightRadius = "0";
+          
+        }else if(i === lista.length - 1){
+          tag.style.borderTopLeftRadius = "0";
+          tag.style.borderBottomLeftRadius = "0";
+          tag.style.borderTopRightRadius = "30";
+          tag.style.borderBottomRightRadius = "30";
+        }else{
+          tag.style.borderTopLeftRadius = "0";
+          tag.style.borderBottomLeftRadius = "0";
+          tag.style.borderTopRightRadius = "0";
+          tag.style.borderBottomRightRadius = "0";
         }
+        tag.style.backgroundColor = "#f34141";
       }
     }
   }

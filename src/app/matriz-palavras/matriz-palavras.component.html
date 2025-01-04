@@ -2,7 +2,7 @@
     <div id="lista-palavras">
         <ul>
             @for(itens of listaPalavras; track $index){
-            <li>{{itens}}</li>
+            <li id='{{$index}}'>{{itens}}</li>
             }
         </ul>
     </div>
