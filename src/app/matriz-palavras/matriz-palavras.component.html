@@ -2,20 +2,20 @@
     <div id="lista-palavras">
         <ul>
             @for(itens of listaPalavras; track $index){
-                <li>{{itens}}</li>
+            <li>{{itens}}</li>
             }
         </ul>
     </div>
 
     <div id="matriz">
         <tbody>
-            @for (itemLinha of itens; track $index) {
-                <tr>
-                    @for (itemColuna of itemLinha; track $index) {
-                        <td>{{itemColuna}}</td>
-                    }
-                </tr>
-            }
+            <tr *ngFor="let itemLinha of itens; let linhaIndex = index">
+                <td *ngFor="let itemColuna of itemLinha; let colunaIndex = index"
+                    (click)="marcaPalavraMatriz(linhaIndex, colunaIndex)"
+                    id="{{linhaIndex}}-{{colunaIndex}}">
+                    {{ itemColuna }}
+                </td>
+            </tr>
         </tbody>
     </div>
 
