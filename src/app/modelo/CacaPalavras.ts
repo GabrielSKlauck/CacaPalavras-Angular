@@ -54,9 +54,6 @@ export class CacaPalavras {
          let inicioL: number = -1;
          let inicioC: number = -1;
 
-         //Se 1 colocara palavra da esquerda para direita
-         if (tipoDisposicaoPalavra == 1) {
-
             //Pega uma palavra da lista;
             let palavra: string = this.palavrasEscolhidas.pop()!;
             do {
@@ -65,9 +62,8 @@ export class CacaPalavras {
                inicioC = this.getRandomInt(0,this.coluna);
 
                //Palavra deve ser menor que a quantidade de coluna
-               if ((inicioC + palavra.length) < this.coluna &&
-                this.verficaOcupacaoPalavra(palavra, "d", inicioC, inicioL) &&
-                  !this.isOcuped(inicioL,inicioC)) {
+               if ((inicioC + (palavra.length-5)) < this.coluna &&
+                this.verficaOcupacaoPalavra(palavra, "d", inicioC, inicioL)) {
                   console.log(palavra + " = " + inicioL + " - " + inicioC);
                   //Popula matriz
                   for (let j = 0; j < palavra.length; j++) {
@@ -82,32 +78,6 @@ export class CacaPalavras {
                }
                console.log(this.posicoesPalavras)
             } while (this.isOcuped(inicioL, inicioC) || (inicioL == -1 && inicioC == -1))
-         }else{
-            //Pega uma palavra da lista;
-            let palavra: string = this.palavrasEscolhidas.pop()!;
-            do {
-               //Seleciona dois numeros aleatorios
-               inicioL = this.getRandomInt(0,this.linha);
-               inicioC = this.getRandomInt(0,this.coluna);
-
-               //Palavra deve ser menor que a quantidade de coluna
-               if ((inicioL + palavra.length) < this.linha &&
-                this.verficaOcupacaoPalavra(palavra, "v", inicioL, inicioC) &&
-                !this.isOcuped(inicioL,inicioC)) {
-                  console.log(palavra + " = " + inicioL + " - " + inicioC);
-                  //Popula matriz
-                  for (let j = 0; j < palavra.length; j++) {
-                     this.matriz[inicioL][inicioC] = palavra.charAt(j);
-                     this.matrizEspelho[inicioL][inicioC] = palavra.charAt(j);
-                     this.posicoesPalavras.set(inicioL + "-" + inicioC, palavra);
-                     inicioL++;
-                  }
-               }else{
-                  inicioL = this.getRandomInt(0,this.linha);
-                  inicioC = this.getRandomInt(0,this.coluna);
-               }
-            } while (this.isOcuped(inicioL, inicioC) || (inicioL == -1 && inicioC == -1))
-         }
 
       }
    }
