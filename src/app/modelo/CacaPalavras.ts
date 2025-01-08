@@ -7,6 +7,7 @@ export class CacaPalavras {
    palavrasEscolhidas: string[] = [];
    palavrasMostragem: string[] = [];
    posicoesPalavras = new Map<string, string>();
+   disposicoesPalavras = new Map<string,string>();
    private linha: number = 10;
    private coluna: number = 25;
 
@@ -54,6 +55,7 @@ export class CacaPalavras {
          let inicioL: number = -1;
          let inicioC: number = -1;
 
+         //Se igual a 1 insere palavras da direita para esquerda
          if (tipoDisposicaoPalavra == 1) {
             //Pega uma palavra da lista;
             let palavra: string = this.palavrasEscolhidas.pop()!;
@@ -77,8 +79,11 @@ export class CacaPalavras {
                this.matriz[inicioL][inicioC] = palavra.charAt(j);
                this.matrizEspelho[inicioL][inicioC] = palavra.charAt(j);
                this.posicoesPalavras.set(inicioL + "-" + inicioC, palavra);
+               this.disposicoesPalavras.set(inicioL + "-" + inicioC, "DE");
                inicioC++;
             }
+
+            //De cima para baixo
          } else {
             //Pega uma palavra da lista;
             let palavra: string = this.palavrasEscolhidas.pop()!;
@@ -102,6 +107,7 @@ export class CacaPalavras {
                this.matriz[inicioL][inicioC] = palavra.charAt(j);
                this.matrizEspelho[inicioL][inicioC] = palavra.charAt(j);
                this.posicoesPalavras.set(inicioL + "-" + inicioC, palavra);
+               this.disposicoesPalavras.set(inicioL + "-" + inicioC, "AB");
                inicioL++;
             }
          }
