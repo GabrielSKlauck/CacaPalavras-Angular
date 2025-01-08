@@ -19,6 +19,15 @@ export class MatrizPalavrasComponent {
   ngOnInit(): void {
   }
 
+  desistir(): void{
+    for (let i = 0; i < this.itens.length; i++) {
+      for (let j = 0; j < this.itens[i].length; j++) {
+        this.marcaPalavraMatriz(i,j);    
+      }
+      
+    }
+  }
+
   gerarNovo(): void {
     this.caca = new CacaPalavras();
     this.itens = this.caca.matriz;
