@@ -1,9 +1,9 @@
 export class CacaPalavras {
    matriz: string[][];
    matrizEspelho: string[][];
-   palavras: string[] = ['Arquiteto', 'Computador', 'Mesa', 'Tabua', 'Arvore', 'Tela', 'Cachorro',
-      'Teclado', 'Violao', 'Animal', 'Macaco', 'Colar', 'Rato', 'Barco',
-      'Camera', 'Molho', 'Salgado', 'Lapis', 'Ração', 'Mar', 'Lateral'];
+   palavras: string[] = ['Arquiteto', 'Computador', 'Mesa', 'Tábua', 'Árvore', 'Tela', 'Cachorro',
+      'Teclado', 'Violão', 'Animal', 'Macaco', 'Colar', 'Rato', 'Barco',
+      'Câmera', 'Molho', 'Salgado', 'Lápis', 'Ração', 'Mar', 'Lateral'];
    palavrasEscolhidas: string[] = [];
    palavrasMostragem: string[] = [];
    posicoesPalavras = new Map<string, string>();
@@ -21,10 +21,10 @@ export class CacaPalavras {
    geraMatriz(): string[][] {
       const alfabeto: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I",
          "J", "K", "L", "M", "N", "O", "P", "Q", "R",
-         "S", "T", "U", "V", "W", "X", "Y", "Z"];
+         "S", "T", "U", "V", "W", "X", "Y", "Z", "Ç", "Á", "Â", "Ã"];
       for (let i = 0; i < this.linha; i++) {
          for (let j = 0; j < this.coluna; j++) {
-            this.matriz[i][j] = alfabeto.at(this.getRandomInt(0,26)) ?? "";
+            this.matriz[i][j] = alfabeto.at(this.getRandomInt(0,alfabeto.length)) ?? "";
          }
 
       }
