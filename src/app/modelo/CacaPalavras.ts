@@ -56,14 +56,22 @@ export class CacaPalavras {
 
             //Pega uma palavra da lista;
             let palavra: string = this.palavrasEscolhidas.pop()!;
-            do {
+            
                //Seleciona dois numeros aleatorios
                inicioL = this.getRandomInt(0,this.linha);
                inicioC = this.getRandomInt(0,this.coluna);
 
-               //Palavra deve ser menor que a quantidade de coluna
-               if ((inicioC + (palavra.length-5)) < this.coluna &&
-                this.verficaOcupacaoPalavra(palavra, "d", inicioC, inicioL)) {
+               let teste1 = ((inicioC + (palavra.length)) <= this.coluna);
+               let teste2 = this.verficaOcupacaoPalavra(palavra, "d", inicioC, inicioL);
+               while( !teste1 || teste2){
+                  inicioL = this.getRandomInt(0,this.linha);
+                  inicioC = this.getRandomInt(0,this.coluna);
+                  teste1 = ((inicioC + (palavra.length)) < this.coluna);
+                   teste2 = this.verficaOcupacaoPalavra(palavra, "d", inicioC, inicioL);
+               }
+
+               
+               
                   console.log(palavra + " = " + inicioL + " - " + inicioC);
                   //Popula matriz
                   for (let j = 0; j < palavra.length; j++) {
@@ -72,13 +80,9 @@ export class CacaPalavras {
                      this.posicoesPalavras.set(inicioL + "-" + inicioC, palavra);
                      inicioC++;
                   }
-               }else{
-                  inicioL = this.getRandomInt(0,this.linha);
-                  inicioC = this.getRandomInt(0,this.coluna);
-               }
+               
                console.log(this.posicoesPalavras)
-            } while (this.isOcuped(inicioL, inicioC) || (inicioL == -1 && inicioC == -1))
-
+            
       }
    }
 
@@ -86,10 +90,11 @@ export class CacaPalavras {
       //Se for da direita para esquerda
       if (sentido === "d") {
          for (let j = 0; j < palavra.length; j++) {
-            direcao++;
-            if(!this.isOcuped(base,direcao)){
+            
+            if(this.isOcuped(base,direcao)){
                return true;
             }
+            direcao++;
          }
          // Se for de cima para baixo
       }else{
