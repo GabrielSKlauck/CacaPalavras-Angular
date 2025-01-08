@@ -76,7 +76,7 @@ export class CacaPalavras {
 
             //Popula matriz
             for (let j = 0; j < palavra.length; j++) {
-               this.matriz[inicioL][inicioC] = palavra.charAt(j);
+               this.matriz[inicioL][inicioC] = palavra.charAt(j).toUpperCase();
                this.matrizEspelho[inicioL][inicioC] = palavra.charAt(j);
                this.posicoesPalavras.set(inicioL + "-" + inicioC, palavra);
                this.disposicoesPalavras.set(inicioL + "-" + inicioC, "DE");
@@ -104,7 +104,7 @@ export class CacaPalavras {
 
             //Popula matriz
             for (let j = 0; j < palavra.length; j++) {
-               this.matriz[inicioL][inicioC] = palavra.charAt(j);
+               this.matriz[inicioL][inicioC] = palavra.charAt(j).toUpperCase();
                this.matrizEspelho[inicioL][inicioC] = palavra.charAt(j);
                this.posicoesPalavras.set(inicioL + "-" + inicioC, palavra);
                this.disposicoesPalavras.set(inicioL + "-" + inicioC, "AB");

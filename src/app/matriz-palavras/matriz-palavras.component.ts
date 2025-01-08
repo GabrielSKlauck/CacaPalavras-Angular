@@ -14,8 +14,16 @@ export class MatrizPalavrasComponent {
 
   itens: string[][] = this.caca.matriz;
   listaPalavras: string[] = this.caca.palavrasMostragem;
+  qtdAcertos: number = 0;
 
   ngOnInit(): void {
+  }
+
+  gerarNovo():void{
+    this.caca = new CacaPalavras();
+    this.itens = this.caca.matriz;
+    this.listaPalavras = this.caca.palavrasMostragem;
+    this.qtdAcertos = 0;
   }
 
   marcaPalavraMatriz(i: number, j: number): void {
@@ -36,6 +44,10 @@ export class MatrizPalavrasComponent {
       
 
       this.marcaListaPalavra(palavra);
+
+      if(this.caca.palavrasMostragem.length === this.qtdAcertos){
+
+      }
     }
   }
   
