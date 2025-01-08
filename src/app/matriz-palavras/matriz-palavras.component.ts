@@ -19,10 +19,21 @@ export class MatrizPalavrasComponent {
   ngOnInit(): void {
   }
 
-  gerarNovo():void{
+  gerarNovo(): void {
     this.caca = new CacaPalavras();
     this.itens = this.caca.matriz;
+
     this.listaPalavras = this.caca.palavrasMostragem;
+
+    for (let i = 0; i < this.listaPalavras.length; i++) {
+      let tagLI: HTMLElement | null = document.getElementById(""+i);
+      if(tagLI != null){
+        tagLI.innerHTML = "";
+        tagLI.innerHTML = this.listaPalavras[i];
+      }
+    }
+
+
     this.qtdAcertos = 0;
   }
 
@@ -36,33 +47,33 @@ export class MatrizPalavrasComponent {
       //Pega todas as chaves que referenciam a palavra
       let listaCoordenadasPalavra: string[] = this.obterChavesPorValor(this.caca.posicoesPalavras, palavra)
 
-      if(disposicao === "DE"){
+      if (disposicao === "DE") {
         this.marcaPalavrasHorizontal(listaCoordenadasPalavra);
-      }else if(disposicao === "AB"){
+      } else if (disposicao === "AB") {
         this.marcaPalavraVertical(listaCoordenadasPalavra);
       }
-      
+
 
       this.marcaListaPalavra(palavra);
 
-      if(this.caca.palavrasMostragem.length === this.qtdAcertos){
+      if (this.caca.palavrasMostragem.length === this.qtdAcertos) {
 
       }
     }
   }
-  
-  marcaListaPalavra(palavra: string) {
-    let tag: HTMLElement | null = document.getElementById(""+this.listaPalavras.indexOf(palavra));
-      if (tag != null) {
-        tag.innerHTML = "";
-        let tagS = document.createElement("s");
-        tagS.innerHTML = palavra;
-        tag.append(tagS);
 
-      }
+  marcaListaPalavra(palavra: string) {
+    let tag: HTMLElement | null = document.getElementById("" + this.listaPalavras.indexOf(palavra));
+    if (tag != null) {
+      tag.innerHTML = "";
+      let tagS = document.createElement("s");
+      tagS.innerHTML = palavra;
+      tag.append(tagS);
+
+    }
   }
 
-  marcaPalavrasHorizontal(lista: string[]): void{
+  marcaPalavrasHorizontal(lista: string[]): void {
     for (let i = 0; i < lista.length; i++) {
       //Pega as tags <td> e muda a cor de fundo
       let tag: HTMLElement | null = document.getElementById(lista[i]);
@@ -73,13 +84,13 @@ export class MatrizPalavrasComponent {
           tag.style.borderBottomLeftRadius = "30";
           tag.style.borderTopRightRadius = "0";
           tag.style.borderBottomRightRadius = "0";
-          
-        }else if(i === lista.length - 1){
+
+        } else if (i === lista.length - 1) {
           tag.style.borderTopLeftRadius = "0";
           tag.style.borderBottomLeftRadius = "0";
           tag.style.borderTopRightRadius = "30";
           tag.style.borderBottomRightRadius = "30";
-        }else{
+        } else {
           tag.style.borderTopLeftRadius = "0";
           tag.style.borderBottomLeftRadius = "0";
           tag.style.borderTopRightRadius = "0";
@@ -90,7 +101,7 @@ export class MatrizPalavrasComponent {
     }
   }
 
-  marcaPalavraVertical(lista: string[]): void{
+  marcaPalavraVertical(lista: string[]): void {
     for (let i = 0; i < lista.length; i++) {
       //Pega as tags <td> e muda a cor de fundo
       let tag: HTMLElement | null = document.getElementById(lista[i]);
@@ -101,13 +112,13 @@ export class MatrizPalavrasComponent {
           tag.style.borderBottomLeftRadius = "0";
           tag.style.borderTopRightRadius = "30";
           tag.style.borderBottomRightRadius = "0";
-          
-        }else if(i === lista.length - 1){
+
+        } else if (i === lista.length - 1) {
           tag.style.borderTopLeftRadius = "0";
           tag.style.borderBottomLeftRadius = "30";
           tag.style.borderTopRightRadius = "0";
           tag.style.borderBottomRightRadius = "30";
-        }else{
+        } else {
           tag.style.borderTopLeftRadius = "0";
           tag.style.borderBottomLeftRadius = "0";
           tag.style.borderTopRightRadius = "0";
