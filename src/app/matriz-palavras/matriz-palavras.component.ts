@@ -65,9 +65,6 @@ export class MatrizPalavrasComponent {
 
       this.marcaListaPalavra(palavra);
 
-      if (this.caca.palavrasMostragem.length === this.qtdAcertos) {
-
-      }
     }
   }
 
