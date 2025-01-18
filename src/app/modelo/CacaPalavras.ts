@@ -1,11 +1,9 @@
 export class CacaPalavras {
    matriz: string[][];
    matrizEspelho: string[][];
-   palavras: string[] = ['Arquiteto', 'Computador', 'Mesa', 'Tábua', 'Árvore', 'Tela', 'Cachorro', 'Teclado', 
-      'Janela', 'Relógio', 'Cadeira', 'Livro', 'Caneta', 'Papel', 'Ferro', 'Relâmpago', 
-      'Sol', 'Céu', 'Estrada', 'Carro', 'Mão', 'Pé', 'Rato', 'Gato', 'Bola', 'Janela', 
-      'Relógio', 'Casa', 'Cachoeira', 'Montanha', 'Fogo', 'Sorriso', 'Luz', 'Chave', 'Coração'];
-
+   palavras: string[] = ['Arquiteto', 'Computador', 'Mesa', 'Tábua', 'Árvore', 'Tela', 'Cachorro',
+      'Teclado', 'Violão', 'Animal', 'Macaco', 'Colar', 'Rato', 'Barco',
+      'Câmera', 'Molho', 'Salgado', 'Lápis', 'Ração', 'Mar', 'Lateral'];
    palavrasEscolhidas: string[] = [];
    palavrasMostragem: string[] = [];
    posicoesPalavras = new Map<string, string>();
