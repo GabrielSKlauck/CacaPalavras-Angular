@@ -13,7 +13,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "docs/CacaPalavras-Angular",
+            "outputPath": {
+              "base": "dist/CacaPalavras-Angular",
+              "browser": ""
+            },
             "index": "src/index.html",
             "browser": "",
             "polyfills": [
