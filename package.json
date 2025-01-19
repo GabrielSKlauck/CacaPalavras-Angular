@@ -36,5 +36,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.4.2"
-  }
+  },
+  "build": "npm run generate-html && vite build",
+ "generate-html": "mkdir -p dist && cp index.html dist/"
 }
