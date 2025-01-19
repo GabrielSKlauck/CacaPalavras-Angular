@@ -11,8 +11,7 @@
         <tbody>
             <tr *ngFor="let itemLinha of itens; let linhaIndex = index">
                 <td *ngFor="let itemColuna of itemLinha; let colunaIndex = index"
-                    (click)="marcaPalavraMatriz(linhaIndex, colunaIndex)"
-                    id="{{linhaIndex}}-{{colunaIndex}}">
+                    (click)="marcaPalavraMatriz(linhaIndex, colunaIndex)" id="{{linhaIndex}}-{{colunaIndex}}">
                     {{ itemColuna }}
                 </td>
             </tr>
