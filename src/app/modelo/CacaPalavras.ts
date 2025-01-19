@@ -41,7 +41,8 @@ export class CacaPalavras {
          const posicaoPalavra = this.getRandomInt(0, this.palavras.length)
 
          //Seleciona uma palavra da lista
-         let palavraSelecionada: string = this.palavras.at(posicaoPalavra)!
+         let palavraSelecionada: string = this.palavras.at(posicaoPalavra)!;
+         palavraSelecionada = palavraSelecionada.toUpperCase();
 
          this.palavrasEscolhidas.push(palavraSelecionada);
          this.palavrasMostragem.push(palavraSelecionada);
