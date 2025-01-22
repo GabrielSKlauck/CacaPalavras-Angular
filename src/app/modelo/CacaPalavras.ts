@@ -52,12 +52,12 @@ export class CacaPalavras {
 
 
       for (let i = 0; i < iteracoes; i++) {
-         const tipoDisposicaoPalavra = this.getRandomInt(0, 2);
+         const tipoDisposicaoPalavra = this.getRandomInt(0, 3);
          let inicioL: number = -1;
          let inicioC: number = -1;
 
-         //Se igual a 1 insere palavras da direita para esquerda
-         if (tipoDisposicaoPalavra == 1) {
+         //Se igual a 0 insere palavras da direita para esquerda
+         if (tipoDisposicaoPalavra == 0) {
             //Pega uma palavra da lista;
             let palavra: string = this.palavrasEscolhidas.pop()!;
 
@@ -85,7 +85,7 @@ export class CacaPalavras {
             }
 
             //De cima para baixo
-         } else {
+         } else if(tipoDisposicaoPalavra == 1){
             //Pega uma palavra da lista;
             let palavra: string = this.palavrasEscolhidas.pop()!;
 
@@ -111,6 +111,37 @@ export class CacaPalavras {
                this.disposicoesPalavras.set(inicioL + "-" + inicioC, "AB");
                inicioL++;
             }
+         }else if(tipoDisposicaoPalavra == 2){
+
+            //Pega uma palavra da lista;
+            let palavra: string = this.palavrasEscolhidas.pop()!;
+            let palavraReversa: string = palavra.split('').reverse().join('');
+
+            //Seleciona dois numeros aleatorios
+            inicioL = this.getRandomInt(0, this.linha);
+            inicioC = this.getRandomInt(0, this.coluna);
+
+            //Valida as posições, e encontra novas caso precise
+            let teste1 = ((inicioC + (palavra.length)) <= this.coluna);
+            let teste2 = this.verficaOcupacaoPalavra(palavraReversa, "d", inicioC, inicioL);
+            while (!teste1 || teste2) {
+               inicioL = this.getRandomInt(0, this.linha);
+               inicioC = this.getRandomInt(0, this.coluna);
+               teste1 = ((inicioC + (palavra.length)) < this.coluna);
+               teste2 = this.verficaOcupacaoPalavra(palavraReversa, "d", inicioC, inicioL);
+            }
+
+            //Popula matriz
+            for (let j = 0; j < palavra.length; j++) {
+               this.matriz[inicioL][inicioC] = palavraReversa.charAt(j).toUpperCase();
+               this.matrizEspelho[inicioL][inicioC] = palavraReversa.charAt(j);
+               this.posicoesPalavras.set(inicioL + "-" + inicioC, palavraReversa);
+               this.disposicoesPalavras.set(inicioL + "-" + inicioC, "DE");
+               inicioC++;
+            }
+
+
+
          }
 
 
