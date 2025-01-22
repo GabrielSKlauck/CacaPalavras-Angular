@@ -56,17 +56,21 @@ export class MatrizPalavrasComponent {
       //Pega todas as chaves que referenciam a palavra
       let listaCoordenadasPalavra: string[] = this.obterChavesPorValor(this.caca.posicoesPalavras, palavra)
 
-      if (disposicao === "DE") {
+      if (disposicao === "DE" || disposicao === "ED") {
         this.marcaPalavrasHorizontal(listaCoordenadasPalavra);
+        if(disposicao === "ED"){
+          
+        }
       } else if (disposicao === "AB") {
         this.marcaPalavraVertical(listaCoordenadasPalavra);
-      }
+      } 
 
 
       this.marcaListaPalavra(palavra);
 
     }
   }
+  
 
   marcaListaPalavra(palavra: string) {
     let tag: HTMLElement | null = document.getElementById("" + this.listaPalavras.indexOf(palavra));
@@ -134,6 +138,7 @@ export class MatrizPalavrasComponent {
       }
     }
   }
+
   obterChavesPorValor(map: Map<string, string>, valor: string): string[] {
     const chaves: string[] = [];
 

@@ -136,7 +136,7 @@ export class CacaPalavras {
                this.matriz[inicioL][inicioC] = palavraReversa.charAt(j).toUpperCase();
                this.matrizEspelho[inicioL][inicioC] = palavraReversa.charAt(j);
                this.posicoesPalavras.set(inicioL + "-" + inicioC, palavraReversa);
-               this.disposicoesPalavras.set(inicioL + "-" + inicioC, "DE");
+               this.disposicoesPalavras.set(inicioL + "-" + inicioC, "ED");
                inicioC++;
             }
 
