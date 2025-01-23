@@ -59,7 +59,7 @@ export class MatrizPalavrasComponent {
       if (disposicao === "DE" || disposicao === "ED") {
         this.marcaPalavrasHorizontal(listaCoordenadasPalavra);
         if(disposicao === "ED"){
-          
+          palavra = palavra.split('').reverse().join('');
         }
       } else if (disposicao === "AB") {
         this.marcaPalavraVertical(listaCoordenadasPalavra);
