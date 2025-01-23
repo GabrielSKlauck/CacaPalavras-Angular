@@ -42,7 +42,6 @@ export class CacaPalavras {
 
          //Seleciona uma palavra da lista
          let palavraSelecionada: string = this.palavras.at(posicaoPalavra)!;
-         palavraSelecionada = palavraSelecionada.toUpperCase();
 
          this.palavrasEscolhidas.push(palavraSelecionada);
          this.palavrasMostragem.push(palavraSelecionada);
