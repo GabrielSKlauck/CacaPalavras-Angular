@@ -61,7 +61,10 @@ export class MatrizPalavrasComponent {
         if(disposicao === "ED"){
           palavra = palavra.split('').reverse().join('');
         }
-      } else if (disposicao === "AB") {
+      } else if (disposicao === "AB" || disposicao == "BA") {
+        if(disposicao == "BA"){
+          palavra = palavra.split('').reverse().join('');
+        }
         this.marcaPalavraVertical(listaCoordenadasPalavra);
       } 
 
