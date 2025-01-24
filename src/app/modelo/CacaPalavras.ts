@@ -17,6 +17,7 @@ export class CacaPalavras {
       this.matrizEspelho = Array.from({ length: this.linha }, () => Array(this.coluna).fill(""));
       this.matriz = this.geraMatriz();
       this.populaMatriz();
+      console.log("Funca");
    }
 
    geraMatriz(): string[][] {
